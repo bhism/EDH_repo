@@ -12,7 +12,7 @@
             "storeSettings": {
               "type": "AzureBlobStorageReadSettings",
               "recursive": true,
-              "enablePartitionDiscovery": false
+              "enablePartitionDiscovery": true
             },
             "datasetSettings": {
               "type": "DelimitedText",
@@ -45,7 +45,7 @@
           "sink": {
             "type": "LakehouseTableSink",
             "tableActionOption": "OverwriteSchema",
-            "applyVOrder": false,
+            "applyVOrder": true,
             "enableTimestampNtz": false,
             "partitionOption": "None",
             "datasetSettings": {
@@ -71,6 +71,129 @@
           },
           "translator": {
             "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "source_id",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "source_id",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "source_type",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "source_type",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "fabric_connection_name",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "fabric_connection_name",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "host",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "host",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "port",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "port",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "database_name",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "database_name",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "authentication_type",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "authentication_type",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "gateway_type",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "gateway_type",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "is_active",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "is_active",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "user_name",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "user_name",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "password",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "password",
+                  "physicalType": "string"
+                }
+              }
+            ],
             "typeConversion": true,
             "typeConversionSettings": {
               "allowDataTruncation": true,
